@@ -34,6 +34,8 @@ const Steps = ({ activePersonDropdown, handlePersonDropdown, categoryId }) => {
           <DateTime step={true} />
         </StyledFlexBox>
       );
+    default:
+      return null
   }
 };
 

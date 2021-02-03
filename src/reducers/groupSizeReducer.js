@@ -1,10 +1,11 @@
+import {actions} from 'actions/actions'
 const initialState = 0;
 
 export const groupSizeReducer = (state = initialState, action) => {
     switch(action.type) {
-        case "INCREMENT":
+        case actions.INCREMENT:
             return state + 1
-        case "DECREMENT":
+        case actions.DECREMENT:
             if(state <= 0) {
                 return state
             } else {

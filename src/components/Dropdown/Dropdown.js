@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // assets
 import { ReactComponent as ArrowDown } from "assets/svg/arrowdown.svg";
 import { ReactComponent as ArrowUp } from "assets/svg/arrowup.svg";
