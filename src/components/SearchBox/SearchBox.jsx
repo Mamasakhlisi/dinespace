@@ -1,6 +1,6 @@
 import React from "react";
 //assets
-import { ReactComponent as SearchSvg } from "../../assets/svg/search.svg";
+import { ReactComponent as SearchSvg } from "assets/svg/search.svg";
 //styles
 import { StyledContainer, StyledInput } from "./SearchBoxStyles";
 

@@ -1,7 +1,7 @@
 import React from "react";
 // components
-import DateTime from "../Date&Time/DateTime";
-import PersonDropdown from "../PersonDropdown/PersonDropdown";
+import DateTime from "components/Date&Time/DateTime";
+import PersonDropdown from "components/PersonDropdown/PersonDropdown";
 // styles
 import { StyledFlexBox } from "./ComponentStepsStyles";
 

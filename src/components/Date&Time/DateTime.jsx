@@ -1,6 +1,6 @@
 import React from 'react'
 // assets
-import { ReactComponent as DateTimeSvg } from "../../assets/svg/date&time.svg";
+import { ReactComponent as DateTimeSvg } from "assets/svg/date&time.svg";
 
 //styles
 import {StyledContainer} from './DateTimeStyles'

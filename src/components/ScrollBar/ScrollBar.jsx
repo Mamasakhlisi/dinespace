@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 // assets
-import { ReactComponent as PizzaSvg } from "../../assets/svg/pizza.svg";
-import { ReactComponent as ChickenSvg } from "../../assets/svg/chicken.svg";
-import { ReactComponent as BurgerSvg } from "../../assets/svg/burger.svg";
-import { ReactComponent as BarsSvg } from "../../assets/svg/bars.svg";
+import { ReactComponent as PizzaSvg } from "assets/svg/pizza.svg";
+import { ReactComponent as ChickenSvg } from "assets/svg/chicken.svg";
+import { ReactComponent as BurgerSvg } from "assets/svg/burger.svg";
+import { ReactComponent as BarsSvg } from "assets/svg/bars.svg";
 
 //styles
 import {

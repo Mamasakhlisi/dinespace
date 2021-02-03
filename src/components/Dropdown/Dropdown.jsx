@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 // assets
-import { ReactComponent as ArrowDown } from "../../assets/svg/arrowdown.svg";
-import { ReactComponent as ArrowUp } from "../../assets/svg/arrowup.svg";
-import { ReactComponent as DineOutSvg } from "../../assets/svg/dineout.svg";
-import { ReactComponent as ReservationSvg } from "../../assets/svg/reservation.svg";
-import { ReactComponent as PickUpSvg } from "../../assets/svg/pickup.svg";
+import { ReactComponent as ArrowDown } from "assets/svg/arrowdown.svg";
+import { ReactComponent as ArrowUp } from "assets/svg/arrowup.svg";
+import { ReactComponent as DineOutSvg } from "assets/svg/dineout.svg";
+import { ReactComponent as ReservationSvg } from "assets/svg/reservation.svg";
+import { ReactComponent as PickUpSvg } from "assets/svg/pickup.svg";
 // styles
 import {
   StyledDropdown,

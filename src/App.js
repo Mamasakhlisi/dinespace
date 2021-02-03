@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import GlobalStyle from "./globalStyles";
 import { StyledContainer, StyledFlexBox } from "./AppStyles";
 
-//components
-import Dropdwon from "./components/Dropdown/Dropdown";
-import DateTime from "./components/Date&Time/DateTime";
-import PersonDropdown from "./components/PersonDropdown/PersonDropdown";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ScrollBar from "./components/ScrollBar/ScrollBar";
-import GroupSize from "./components/PersonDropdown/GroupSize";
-import ComponentSteps from "./components/Steps/ComponentSteps";
+// components
+import Dropdown from "components/Dropdown/Dropdown";
+import DateTime from "components/Date&Time/DateTime";
+import PersonDropdown from "components/PersonDropdown/PersonDropdown";
+import SearchBox from "components/SearchBox/SearchBox";
+import ScrollBar from "components/ScrollBar/ScrollBar";
+import GroupSize from "components/PersonDropdown/GroupSize";
+import ComponentSteps from "components/Steps/ComponentSteps";
 
 function App() {
   const [category, setCategory] = useState(null);
@@ -28,7 +28,7 @@ function App() {
     setActivePersonDropdown(!activePersonDropdown);
   };
 
-  // Set category 
+  // Set category
   const handleCategory = (item) => {
     item.id === 0 ? setCategory(null) : setCategory(item);
     setActiveDropdown(false);
@@ -38,7 +38,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <StyledContainer activeDropdown={activeDropdown}>
-        <Dropdwon
+        <Dropdown
           activeDropdown={activeDropdown}
           handleDropdown={handleDropdown}
           handleCategory={handleCategory}
