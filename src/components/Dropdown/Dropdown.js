@@ -13,7 +13,7 @@ import {
   StyledList,
   StyledTitle,
   StyledLabel,
-} from "./DropdownStyles";
+} from "./styles";
 
 // Dropdown list
 const dropdownList = [

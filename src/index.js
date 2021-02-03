@@ -8,7 +8,7 @@ import {createStore} from 'redux'
 // Components
 import App from './App';
 // Reducer
-import {groupSizeReducer} from './reducers/groupSizeReducer'
+import {groupSizeReducer} from 'redux/reducers/groupSizeReducer'
 
 // Redux store
 const store = createStore(groupSizeReducer);

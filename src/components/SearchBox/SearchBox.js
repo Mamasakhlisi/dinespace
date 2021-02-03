@@ -2,7 +2,7 @@ import React from "react";
 //assets
 import { ReactComponent as SearchSvg } from "assets/svg/search.svg";
 //styles
-import { StyledContainer, StyledInput } from "./SearchBoxStyles";
+import { StyledContainer, StyledInput } from "./styles";
 
 const SearchBox = () => {
   return (

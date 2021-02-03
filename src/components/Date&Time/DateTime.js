@@ -3,7 +3,7 @@ import React from 'react'
 import { ReactComponent as DateTimeSvg } from "assets/svg/date&time.svg";
 
 //styles
-import {StyledContainer} from './DateTimeStyles'
+import {StyledContainer} from './styles'
 
 const DateTime = ({step}) => {
     return (

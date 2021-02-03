@@ -1,4 +1,4 @@
-import {actions} from 'actions/actions'
+import {actions} from './actions'
 const initialState = 0;
 
 export const groupSizeReducer = (state = initialState, action) => {

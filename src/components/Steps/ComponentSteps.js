@@ -3,7 +3,7 @@ import React from "react";
 import DateTime from "components/Date&Time/DateTime";
 import PersonDropdown from "components/PersonDropdown/PersonDropdown";
 // styles
-import { StyledFlexBox } from "./ComponentStepsStyles";
+import { StyledFlexBox } from "./styles";
 
 // Dining options steps
 const Steps = ({ activePersonDropdown, handlePersonDropdown, categoryId }) => {

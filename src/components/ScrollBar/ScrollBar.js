@@ -7,19 +7,18 @@ import { ReactComponent as BarsSvg } from "assets/svg/bars.svg";
 
 //styles
 import {
-    StyledWrapper,
+  StyledWrapper,
   StyledContainer,
   StyledList,
   StyledListItem,
   StyledBar,
   StyledCounter,
-} from "./ScrollBarStyles";
+} from "./styles";
 
 const scrollItemList = [
-    { id: 1, icon: <PizzaSvg />, label: "Pizza" },
-    { id: 2, icon: <ChickenSvg />, label: "Chicken" },
-    { id: 3, icon: <BurgerSvg />, label: "Burger" },
-    
+  { id: 1, icon: <PizzaSvg />, label: "Pizza" },
+  { id: 2, icon: <ChickenSvg />, label: "Chicken" },
+  { id: 3, icon: <BurgerSvg />, label: "Burger" },
 ];
 
 const ScrollBar = () => {

@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch,useSelector } from "react-redux";
 
 // action
-import {increment,decrement} from 'actions/groupSizeAction'
+import {increment,decrement} from 'redux/actions/groupSizeAction'
 
 // assets
 import {ReactComponent as PlusSvg} from 'assets/svg/plus.svg';
