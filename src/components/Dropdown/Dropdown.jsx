@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 // assets
 import { ReactComponent as ArrowDown } from "../../assets/svg/arrowdown.svg";
 import { ReactComponent as ArrowUp } from "../../assets/svg/arrowup.svg";
@@ -12,7 +12,7 @@ import {
   StyledListContainer,
   StyledList,
   StyledTitle,
-  StyledLabel
+  StyledLabel,
 } from "./DropdownStyles";
 
 // Dropdown list
@@ -23,11 +23,22 @@ const dropdownList = [
   { id: 0, label: "Any" },
 ];
 
-const Dropdown = ({ handleDropdown, activeDropdown,handleCategory,category }) => {
+const Dropdown = ({
+  handleDropdown,
+  activeDropdown,
+  handleCategory,
+  category,
+}) => {
   return (
     <StyledDropdown>
       <StyledChoose onClick={handleDropdown} activeDropdown={activeDropdown}>
-        {category ? <StyledTitle>{category.icon} <StyledLabel>{category.label}</StyledLabel></StyledTitle> : <span>Dining Option</span> }
+        {category ? (
+          <StyledTitle>
+            {category.icon} <StyledLabel>{category.label}</StyledLabel>
+          </StyledTitle>
+        ) : (
+          <span>Dining Option</span>
+        )}
         {activeDropdown ? <ArrowUp /> : <ArrowDown />}
       </StyledChoose>
       {activeDropdown && (

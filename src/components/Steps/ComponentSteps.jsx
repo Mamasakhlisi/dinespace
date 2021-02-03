@@ -4,36 +4,51 @@ import DateTime from "../Date&Time/DateTime";
 import PersonDropdown from "../PersonDropdown/PersonDropdown";
 // styles
 import { StyledFlexBox } from "./ComponentStepsStyles";
-const Steps = ({ category, categoryId }) => {
+
+// Dining options steps
+const Steps = ({ activePersonDropdown, handlePersonDropdown, categoryId }) => {
   switch (categoryId) {
     case 1:
       return (
         <StyledFlexBox>
           <DateTime />
-          <PersonDropdown />
+          <PersonDropdown
+            handlePersonDropdown={handlePersonDropdown}
+            activePersonDropdown={activePersonDropdown}
+          />
         </StyledFlexBox>
       );
     case 2:
       return (
         <StyledFlexBox>
           <DateTime />
-          <PersonDropdown />
+          <PersonDropdown
+            handlePersonDropdown={handlePersonDropdown}
+            activePersonDropdown={activePersonDropdown}
+          />
         </StyledFlexBox>
       );
     case 3:
-      return         <StyledFlexBox>
-      <DateTime step={true} />
-    </StyledFlexBox>
-    default:
-      return <span>Default</span>;
-      break;
+      return (
+        <StyledFlexBox>
+          <DateTime step={true} />
+        </StyledFlexBox>
+      );
   }
 };
 
-const ComponentSteps = ({ categoryId }) => {
+const ComponentSteps = ({
+  categoryId,
+  activePersonDropdown,
+  handlePersonDropdown,
+}) => {
   return (
     <div>
-      <Steps categoryId={categoryId} />
+      <Steps
+        categoryId={categoryId}
+        handlePersonDropdown={handlePersonDropdown}
+        activePersonDropdown={activePersonDropdown}
+      />
     </div>
   );
 };

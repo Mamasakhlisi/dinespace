@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// styles
 import GlobalStyle from "./globalStyles";
 import { StyledContainer, StyledFlexBox } from "./AppStyles";
 
@@ -16,14 +17,18 @@ function App() {
   const [activeDropdown, setActiveDropdown] = useState(false);
   const [activePersonDropdown, setActivePersonDropdown] = useState(false);
 
+  // Options dropdown
   const handleDropdown = () => {
     setActiveDropdown(!activeDropdown);
+    setActivePersonDropdown(false);
   };
 
+  // Person dropdown
   const handlePersonDropdown = () => {
     setActivePersonDropdown(!activePersonDropdown);
   };
 
+  // Set category 
   const handleCategory = (item) => {
     item.id === 0 ? setCategory(null) : setCategory(item);
     setActiveDropdown(false);
@@ -42,7 +47,11 @@ function App() {
         {!activeDropdown && (
           <div>
             {category ? (
-              <ComponentSteps categoryId={category && category.id} />
+              <ComponentSteps
+                categoryId={category && category.id}
+                handlePersonDropdown={handlePersonDropdown}
+                activePersonDropdown={activePersonDropdown}
+              />
             ) : (
               <StyledFlexBox>
                 <DateTime />
