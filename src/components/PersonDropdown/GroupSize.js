@@ -1,14 +1,14 @@
 import React from "react";
 // React Redux
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // action
-import {increment,decrement} from 'redux/actions/groupSizeAction'
+import { increment, decrement } from "redux/actions/groupSizeAction";
 
 // assets
-import {ReactComponent as PlusSvg} from 'assets/svg/plus.svg';
-import {ReactComponent as MinusSvg} from 'assets/svg/minus.svg';
-import {ReactComponent as PersonSvg} from 'assets/svg/person.svg';
+import { ReactComponent as PlusSvg } from "assets/svg/plus.svg";
+import { ReactComponent as MinusSvg } from "assets/svg/minus.svg";
+import { ReactComponent as PersonSvg } from "assets/svg/person.svg";
 
 // styles
 import {
@@ -20,27 +20,33 @@ import {
 } from "./GroupSizeStyles";
 
 const GroupSize = () => {
-  const counter = useSelector((state) => state)
+  const counter = useSelector((state) => state.groupSizeReducer);
   const dispatch = useDispatch();
 
   // Group size increment +1
   const handleIncrement = () => {
-    dispatch(increment())
-  }
+    dispatch(increment());
+  };
   // Group size decrement -1
   const handleDecrement = () => {
-    dispatch(decrement())
-  }
-
+    dispatch(decrement());
+  };
+  
   return (
     <StyledContainer>
       <StyledTitle>
-        <span><PersonSvg /> Group Size</span>
+        <span>
+          <PersonSvg /> Group Size
+        </span>
       </StyledTitle>
       <StyledCounterContainer>
-        <StyledButtonDecrement onClick={handleDecrement}><MinusSvg/></StyledButtonDecrement>
-        <span>{counter}</span>
-        <StyledButtonIncrement onClick={handleIncrement}><PlusSvg /></StyledButtonIncrement>
+        <StyledButtonDecrement onClick={handleDecrement}>
+          <MinusSvg />
+        </StyledButtonDecrement>
+        <span>{counter.counter}</span>
+        <StyledButtonIncrement onClick={handleIncrement}>
+          <PlusSvg />
+        </StyledButtonIncrement>
       </StyledCounterContainer>
     </StyledContainer>
   );

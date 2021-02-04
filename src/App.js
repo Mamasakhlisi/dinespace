@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // styles
 import GlobalStyle from "./globalStyles";
 import { StyledContainer, StyledFlexBox } from "./AppStyles";
@@ -12,26 +13,45 @@ import ScrollBar from "components/ScrollBar/ScrollBar";
 import GroupSize from "components/PersonDropdown/GroupSize";
 import ComponentSteps from "components/Steps/ComponentSteps";
 
+// actions
+import { setcategory, resetcategory } from "redux/actions/categoryAction";
+import {
+  activePersonDropdownAction,
+  deactivePersonDropdownAction,
+} from "redux/actions/activePersonDropdownAction";
+import {
+  activeDropdownAction,
+  deactiveDropdownAction,
+} from "redux/actions/activeDropdownAction";
+
 function App() {
-  const [category, setCategory] = useState(null);
-  const [activeDropdown, setActiveDropdown] = useState(false);
-  const [activePersonDropdown, setActivePersonDropdown] = useState(false);
+  const dispatch = useDispatch();
+  // Menu category
+  const category = useSelector((category) => category.categoryReducer.item);
+  // Person Dropdown Active
+  const activePersonDropdown = useSelector(
+    (state) => state.activePersonDropdownReducer.active
+  );
+  // Dropdown Active
+  const activeDropdown = useSelector(
+    (state) => state.activeDropdownReducer.active
+  );
 
   // Options dropdown
   const handleDropdown = () => {
-    setActiveDropdown(!activeDropdown);
-    setActivePersonDropdown(false);
+    dispatch(activeDropdownAction());
+    dispatch(deactivePersonDropdownAction());
   };
 
   // Person dropdown
   const handlePersonDropdown = () => {
-    setActivePersonDropdown(!activePersonDropdown);
+    dispatch(activePersonDropdownAction(!activePersonDropdown));
   };
 
   // Set category
   const handleCategory = (item) => {
-    item.id === 0 ? setCategory(null) : setCategory(item);
-    setActiveDropdown(false);
+    item.id === 0 ? dispatch(resetcategory()) : dispatch(setcategory(item));
+    dispatch(deactiveDropdownAction());
   };
 
   return (
@@ -54,7 +74,7 @@ function App() {
               />
             ) : (
               <StyledFlexBox>
-                <DateTime />
+                <DateTime step="false" />
                 <PersonDropdown
                   handlePersonDropdown={handlePersonDropdown}
                   activePersonDropdown={activePersonDropdown}

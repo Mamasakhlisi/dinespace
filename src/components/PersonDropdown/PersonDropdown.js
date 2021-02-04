@@ -11,7 +11,7 @@ import { StyledChoose } from "./PersonDropdownStyles";
 
 const PersonDropdown = ({ activePersonDropdown, handlePersonDropdown }) => {
   // Group size
-  const counter = useSelector((state) => state);
+  const counter = useSelector((state) => state.groupSizeReducer.counter);
   return (
     <div>
       <StyledChoose onClick={handlePersonDropdown}>

@@ -4,14 +4,24 @@ import './index.css';
 // React Redux
 import {Provider} from 'react-redux'
 // Redux
-import {createStore} from 'redux'
+import {createStore,combineReducers } from 'redux'
 // Components
 import App from './App';
 // Reducer
 import {groupSizeReducer} from 'redux/reducers/groupSizeReducer'
+import {categoryReducer} from 'redux/reducers/categoryReducer'
+import {activePersonDropdownReducer} from 'redux/reducers/activePersonDropdownReducer'
+import {activeDropdownReducer} from 'redux/reducers/activeDropdownReducer'
+
+const rootReducer = combineReducers({
+ groupSizeReducer,
+ categoryReducer,
+ activePersonDropdownReducer,
+ activeDropdownReducer
+});
 
 // Redux store
-const store = createStore(groupSizeReducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>

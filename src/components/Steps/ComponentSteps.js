@@ -11,7 +11,7 @@ const Steps = ({ activePersonDropdown, handlePersonDropdown, categoryId }) => {
     case 1:
       return (
         <StyledFlexBox>
-          <DateTime />
+          <DateTime step="false"   />
           <PersonDropdown
             handlePersonDropdown={handlePersonDropdown}
             activePersonDropdown={activePersonDropdown}
@@ -21,7 +21,7 @@ const Steps = ({ activePersonDropdown, handlePersonDropdown, categoryId }) => {
     case 2:
       return (
         <StyledFlexBox>
-          <DateTime />
+          <DateTime step="false"  />
           <PersonDropdown
             handlePersonDropdown={handlePersonDropdown}
             activePersonDropdown={activePersonDropdown}
@@ -31,7 +31,7 @@ const Steps = ({ activePersonDropdown, handlePersonDropdown, categoryId }) => {
     case 3:
       return (
         <StyledFlexBox>
-          <DateTime step={true} />
+          <DateTime step="true" />
         </StyledFlexBox>
       );
     default:
