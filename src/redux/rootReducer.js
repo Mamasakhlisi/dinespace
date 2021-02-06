@@ -6,6 +6,10 @@ import {activePersonDropdownReducer} from 'redux/reducers/activePersonDropdownRe
 import {activeDropdownReducer} from 'redux/reducers/activeDropdownReducer'
 import {dateHandlerReducer} from 'redux/reducers/dateHandlerReducer'
 import {timeHandlerReducer} from 'redux/reducers/timeHandlerReducer'
+import {dateShowReducer} from 'redux/reducers/dateShowReducer'
+import {doneButtonShowReducer} from 'redux/reducers/doneButtonShowReducer'
+import {stepReducer} from 'redux/reducers/stepReducer'
+
 
 export const rootReducer = combineReducers({
  groupSizeReducer,
@@ -13,5 +17,8 @@ export const rootReducer = combineReducers({
  activePersonDropdownReducer,
  activeDropdownReducer,
  dateHandlerReducer,
- timeHandlerReducer
+ timeHandlerReducer,
+ dateShowReducer,
+ doneButtonShowReducer,
+ stepReducer
 });

@@ -10,6 +10,9 @@ import Time from "./Time";
 // actions
 import { setdate } from "redux/actions/dateHandlerAction";
 import { settime } from "redux/actions/timeHandlerAction";
+import { setshow } from "redux/actions/dateShowAction";
+import { setshowdone } from "redux/actions/doneButtonShowAction";
+import { setstep } from "redux/actions/stepAction";
 
 // assets
 import { ReactComponent as DateTimeSvg } from "assets/svg/date&time.svg";
@@ -35,11 +38,11 @@ const DateTime = () => {
   const dispatch = useDispatch();
   const date = useSelector((state) => state.dateHandlerReducer.date);
   const time = useSelector((state) => state.timeHandlerReducer.time);
+  const show = useSelector((state) => state.dateShowReducer.show);
+  const showDone = useSelector((state) => state.doneButtonShowReducer.active);
+  const step = useSelector((state) => state.stepReducer.step);
 
-  const [show, setShow] = useState(false);
   const weekDays = moment.weekdaysShort();
-  const [showDone, setShowDone] = useState(false);
-  const [step, setStep] = useState(0);
 
   // arival times
   const times = [
@@ -59,20 +62,20 @@ const DateTime = () => {
   // form submit
   function doneHandler() {
     dispatch(settime(moment(date)));
-    setShow(false);
+    dispatch(setshow(false))
   }
 
   // form clear
   function clearHandler() {
     dispatch(setdate(moment()));
     dispatch(settime(null));
-    setStep(0);
-    setShowDone(false);
+    dispatch(setstep(0))
+    dispatch(setshowdone(false))
   }
 
   // calendar show
   function showCalendar() {
-    setShow(!show);
+    dispatch(setshow(!show))
     // if date null dispatch date
     if(!date) {
       dispatch(setdate(moment())) 
@@ -81,7 +84,7 @@ const DateTime = () => {
 
   // calendar hidde
   function hiddeCalendar(prop) {
-    setShow(false);
+    dispatch(setshow(false))
     // if click close calendar dispatch date and time null, if click prev button and hide calendar the data remain. 
     if(prop) {
       dispatch(setdate(null)) 
@@ -109,7 +112,7 @@ const DateTime = () => {
 
   // time step
   function timeStepHandler(value) {
-    setStep(value);
+    dispatch(setstep(value))
     // apply hour and minute to time
     if (times[value] !== times[0]) {
       const [hour, minute] = times[value].split(":");
@@ -127,7 +130,7 @@ const DateTime = () => {
   // day select
   function dateHandler(day) {
     dispatch(setdate(moment(date).utc(day).set("date", day)));
-    setShowDone(true);
+    dispatch(setshowdone(true))
   }
 
   useEffect(() => {
