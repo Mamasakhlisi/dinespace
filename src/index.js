@@ -12,12 +12,14 @@ import {groupSizeReducer} from 'redux/reducers/groupSizeReducer'
 import {categoryReducer} from 'redux/reducers/categoryReducer'
 import {activePersonDropdownReducer} from 'redux/reducers/activePersonDropdownReducer'
 import {activeDropdownReducer} from 'redux/reducers/activeDropdownReducer'
+import {dateHandlerReducer} from 'redux/reducers/dateHandlerReducer'
 
 const rootReducer = combineReducers({
  groupSizeReducer,
  categoryReducer,
  activePersonDropdownReducer,
- activeDropdownReducer
+ activeDropdownReducer,
+ dateHandlerReducer
 });
 
 // Redux store
