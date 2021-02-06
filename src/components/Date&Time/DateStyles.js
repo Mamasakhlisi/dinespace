@@ -24,6 +24,8 @@ export const Td = styled.td`
   text-align:center;
   cursor:pointer;
   font-family: "Eina03W03-SemiBold";
+  color: ${(p) => (p.current ? "#5b6bc8" : "#000")};
+  position: relative;
   ${(p) =>
     p.active &&
     `
@@ -31,6 +33,9 @@ export const Td = styled.td`
     color: #fff;
   `}
   &[data-current="false"] {
+    color: #ebebec;
+  }
+  &[data-past="true"] {
     color: #ebebec;
   }
 `;

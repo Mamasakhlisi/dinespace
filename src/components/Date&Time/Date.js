@@ -11,7 +11,10 @@ function Calendar({ date, weekDays, dateHandler }) {
 
   // select day of month
   function dayMarkHandler(e) {
-    if (e.target.dataset.current === "true") {
+    if (
+      e.target.dataset.current === "true" &&
+      e.target.dataset.past === "false"
+    ) {
       dateHandler(+e.target.dataset.day);
     }
   }
@@ -22,10 +25,17 @@ function Calendar({ date, weekDays, dateHandler }) {
    return <Td
       key={uuidv4()}
       onClick={dayMarkHandler}
-      data-day={y.day}
+      data-day={+y.day}
       data-current={y.currentMonth}
       active={y.currentMonth && moment(date).date() === +y.day}
-      activeDay={moment(date).date() === +y.day}
+      data-past={
+        y.currentMonth &&
+        +y.day < moment().date() &&
+        moment(date).isSame(moment(), "month")
+      }
+      current={
+        moment().date() === +y.day && moment(date).isSame(moment(), "month")
+      }
     >
       {y.day}
     </Td>

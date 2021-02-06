@@ -73,11 +73,20 @@ const DateTime = () => {
   // calendar show
   function showCalendar() {
     setShow(!show);
+    // if date null dispatch date
+    if(!date) {
+      dispatch(setdate(moment())) 
+    }
   }
 
   // calendar hidde
-  function hiddeCalendar() {
+  function hiddeCalendar(prop) {
     setShow(false);
+    // if click close calendar dispatch date and time null, if click prev button and hide calendar the data remain. 
+    if(prop) {
+      dispatch(setdate(null)) 
+      dispatch(settime(null)) 
+    }
   }
 
   // calendar prev month
@@ -117,25 +126,8 @@ const DateTime = () => {
 
   // day select
   function dateHandler(day) {
-    if (day < moment().day()) {
-      if (
-        parseInt(moment().format("M")) !== parseInt(moment(date).format("M"))
-      ) {
-        dispatch(setdate(moment(date).utc(day).set("date", day)));
-      } else {
-        alert("Unfortunately you can not select the last day of the week");
-      }
-    } else {
-      dispatch(setdate(moment(date).utc(day).set("date", day)));
-      if (
-        parseInt(moment(date).format("M")) !== moment().format("M") ||
-        date.format("D") !== moment().day()
-      ) {
-        setShowDone(true);
-      } else {
-        setShowDone(false);
-      }
-    }
+    dispatch(setdate(moment(date).utc(day).set("date", day)));
+    setShowDone(true);
   }
 
   useEffect(() => {
@@ -150,11 +142,11 @@ const DateTime = () => {
         /* Calendar */
         <Calendar>
           <Header>
-            <FormLeftSvg />
+            <FormLeftSvg onClick={() => hiddeCalendar(false)}/>
             <div>
               <CalendarSvg /> Date and Time
             </div>
-            <FormCloseSvg onClick={hiddeCalendar} />
+            <FormCloseSvg onClick={() => hiddeCalendar(true)} />
           </Header>
           <Controll>
             <span onClick={prevHandler}>
