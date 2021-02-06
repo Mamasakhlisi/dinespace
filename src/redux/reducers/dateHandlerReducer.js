@@ -1,17 +1,15 @@
-import {SET_DATE,SET_TIME} from '../actionTypes'
-import moment from 'moment'
+import {SET_DATE} from '../actionTypes'
+
 const initialState = {
-    date: moment(),
+    date: null,
     time: null
   };
 
   export const dateHandlerReducer = (state = initialState, action) => {
-    const {date, time} = action;
+    const {date} = action;
     switch (action.type) {
       case SET_DATE:
-        return { ...state, date: date };
-      case SET_TIME: 
-        return {...state, time: time }
+        return { ...state, date: date }
       default:
         return state;
     }

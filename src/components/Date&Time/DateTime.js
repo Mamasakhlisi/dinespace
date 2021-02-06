@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// packages
 import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
+
+// components
 import Date from "./Date";
 import Time from "./Time";
 
-import { setdate, settime } from "redux/actions/dateHandlerAction";
+// actions
+import { setdate } from "redux/actions/dateHandlerAction";
+import { settime } from "redux/actions/timeHandlerAction";
+
 // assets
 import { ReactComponent as DateTimeSvg } from "assets/svg/date&time.svg";
 import { ReactComponent as CalendarSvg } from "assets/svg/calendar.svg";
@@ -28,11 +34,14 @@ import {
 const DateTime = () => {
   const dispatch = useDispatch();
   const date = useSelector((state) => state.dateHandlerReducer.date);
-  const time = useSelector((state) => state.dateHandlerReducer.time);
+  const time = useSelector((state) => state.timeHandlerReducer.time);
+
   const [show, setShow] = useState(false);
   const weekDays = moment.weekdaysShort();
   const [showDone, setShowDone] = useState(false);
   const [step, setStep] = useState(0);
+
+  // arival times
   const times = [
     "ASAP",
     "12:00",
@@ -47,11 +56,13 @@ const DateTime = () => {
   const month = parseInt(moment().format("M"));
   const prevMonth = parseInt(moment(date).subtract(1, "M").format("M"));
 
+  // form submit
   function doneHandler() {
     dispatch(settime(moment(date)));
     setShow(false);
   }
 
+  // form clear
   function clearHandler() {
     dispatch(setdate(moment()));
     dispatch(settime(null));
@@ -59,14 +70,17 @@ const DateTime = () => {
     setShowDone(false);
   }
 
+  // calendar show
   function showCalendar() {
     setShow(!show);
   }
 
+  // calendar hidde
   function hiddeCalendar() {
     setShow(false);
   }
 
+  // calendar prev month
   function prevHandler() {
     if (month <= prevMonth) {
       dispatch(
@@ -79,10 +93,12 @@ const DateTime = () => {
     }
   }
 
+  // calendar next month
   function nextHandler() {
-    dispatch(moment(date).add(1, "M"));
+    dispatch(setdate(moment(date).add(1, "M")));
   }
 
+  // time step
   function timeStepHandler(value) {
     setStep(value);
     // apply hour and minute to time
@@ -92,12 +108,14 @@ const DateTime = () => {
     }
   }
 
+  // layout markdown
   const uiDateTime = time
     ? `${moment(time).format("D")}, ${moment(time).format("MMM")} ${moment(
         time
       ).format("hh:mm")}`
     : "Date and Time";
 
+  // day select
   function dateHandler(day) {
     if (day < moment().day()) {
       if (
@@ -120,6 +138,9 @@ const DateTime = () => {
     }
   }
 
+  useEffect(() => {
+    dispatch(setdate(moment()));
+  }, []);
   return (
     <StyledContainer>
       <DateTimeFrom onClick={showCalendar}>

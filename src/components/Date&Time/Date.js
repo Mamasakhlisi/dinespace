@@ -17,17 +17,19 @@ function Calendar({ date, weekDays, dateHandler }) {
   }
 
   // Td list of days
-  const Row = (y) => (
-    <Td
+  const Row = (y) => {
+    console.log(moment(date).date())
+   return <Td
       key={uuidv4()}
       onClick={dayMarkHandler}
       data-day={y.day}
       data-current={y.currentMonth}
       active={y.currentMonth && moment(date).date() === +y.day}
+      activeDay={moment(date).date() === +y.day}
     >
       {y.day}
     </Td>
-  );
+  }
   // Tr list of days
   const Column = (row) => <tr key={uuidv4()}>{row}</tr>;
 
